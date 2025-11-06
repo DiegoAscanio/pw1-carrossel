@@ -1,0 +1,54 @@
+/*
+
+Folha de estilos CSS para um simples carrossel de imagens concebido da seguinte forma:
+
+- 3 colunas flex ocupando, respectivamente, 2.5% 95% e 2.5% da largura do contêiner do carrossel, onde as colunas laterais são usadas para navegação (setas esquerda e direita) e a coluna do meio exibe a imagem atual do carrossel.
+
+- A largura do contêiner será de 50% da largura da janela de visualização (viewport) e o contêiner estará centralizado horizontalmente na página.
+
+- A altura do contêiner do carrossel será fixa em 400px, e a imagem exibida na coluna do meio deve se ajustar proporcionalmente para caber dentro dessa altura, mantendo sua proporção original.
+
+- As colunas laterais serão como abas de navegação com fundos claros apenas, para indicar que são clicáveis, e quando clicadas, atualizarão os valores do cursor do carrossel para mostrar a imagem anterior ou seguinte, devendo ter uma pequena animação de deslocamento ao serem clicadas, bem como, um efeito de transição suave no container de imagem do carrossel ao mudar de imagem, tanto para a imagem anterior quanto para a próxima.
+
+- No html estarão dispostos por meio de elementos com ids específicos para que o CSS e o JavaScript possam manipulá-los adequadamente.
+
+*/
+
+/* Estilos gerais do carrossel */
+#carousel {
+    display: flex;
+    height: 400px;
+    max-width: 50vw;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+#left, #right {
+  flex: 0 0 2.5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #cccccccc;
+  transition: transform 0.2s ease;
+}
+
+#left:hover,
+#right:hover {
+  transform: scale(1.1);
+}
+
+#display {
+  flex: 0 0 95%;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+#carousel-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: opacity 0.5s ease;
+}
+
